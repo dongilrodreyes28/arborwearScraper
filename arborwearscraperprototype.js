@@ -30,7 +30,8 @@ const exportScraper=async(results) => {
 const awScraper = async () => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
-  const styleList = ['350230', '350330', '400340', '400460', '402638', '400761'];
+  const styleList = ['400340'];
+  // const styleList = ['350230', '350330', '400340', '400460', '402638', '400761'];
   let results = [];
 
   await page.setDefaultNavigationTimeout(0);
@@ -112,9 +113,8 @@ const awScraper = async () => {
     console.log(style + ' - done');
   }
 
-  const scrapeData = exportScraper(results);
-
-  console.log(scrapeData);
+  const scrapeData = (results);
+  console.log(JSON.stringify(scrapeData));
   await browser.close();
 }
 
